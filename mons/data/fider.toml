@@ -1,0 +1,11 @@
+[class]
+type = "fire"
+name = "fider"
+[data]
+attacks = [
+    [10,20,30],["fireball","flamethrower","explosion"],[0,2,3]
+]
+health=100
+[obj]
+image="fider.png"
+id=1

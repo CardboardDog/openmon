@@ -1,0 +1,11 @@
+[class]
+type = "earth"
+name = "blosto"
+[data]
+attacks = [
+    [10,20,30],["slam","spike","smash"],[0,2,3]
+]
+health=100
+[obj]
+image="blosto.png"
+id=0
