@@ -1,5 +1,6 @@
 #ifndef vsync
 #define vsync
-void om_vsync_init();
+#include<SDL2/SDL.h>
+void om_setup_vsync();
 void om_vsync();
 #endif

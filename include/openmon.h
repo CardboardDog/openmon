@@ -9,6 +9,9 @@
 #include<tiles.h>
 #include<window.h>
 #include<map.h>
+#include<vsync.h>
+#include<player.h>
+#include<area.h>
 void om_initiate();
 void om_quit();
 #endif

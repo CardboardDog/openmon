@@ -12,8 +12,8 @@ void om_get_inputs(int* inputs){
             return;
         }
     }
-    inputs[0]=keys[SDL_SCANCODE_UP]-keys[SDL_SCANCODE_DOWN];
-    inputs[1]=keys[SDL_SCANCODE_RIGHT]-keys[SDL_SCANCODE_LEFT];
+    inputs[0]=keys[SDL_SCANCODE_RIGHT]-keys[SDL_SCANCODE_LEFT];
+    inputs[1]=keys[SDL_SCANCODE_DOWN]-keys[SDL_SCANCODE_UP];
     if(inputs[2]!=quit);
         inputs[2]=keys[SDL_SCANCODE_Z]-keys[SDL_SCANCODE_X];
 }

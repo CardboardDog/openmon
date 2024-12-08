@@ -1,13 +1,4 @@
 #include<map.h>
-void draw_tile(om_window* window,unsigned char n_tile, int n_x, int n_y){
-    if(n_tile==0)
-        return;
-    unsigned char tile = n_tile-1;
-    for(int x=0;x<5;x++)
-        for(int y=0;y<5;y++)
-            if(tiles[(tile*5)+x+(y*35)])
-                SDL_RenderDrawPoint(window->renderer,n_x+x,n_y+y);
-}
 om_map* om_load_map(unsigned char* map, om_window* window){
     om_map* map_out = malloc(sizeof(om_map));
     map_out->map = map;
@@ -38,4 +29,17 @@ void om_destroy_map(om_map* map){
     if(map->texture!=NULL)
         SDL_DestroyTexture(map->texture);
     free(map);
+}
+int om_check_map(om_map* map, int x, int y, int tile_x, int tile_y){
+    om_area block;
+    om_area check;
+    block.x = tile_x*5;
+    block.y = tile_y*5;
+    check.x = x;
+    check.y = y;
+    block.w=block.h=check.w=check.h=5;
+    if(om_areas_overlap(&block,&check)){
+        return (signed int)map->map[om_get_tile(tile_x,tile_y)];
+    }
+    return 0;
 }
