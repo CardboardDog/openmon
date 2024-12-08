@@ -8,6 +8,7 @@
 #include<scenes.h>
 #include<tiles.h>
 #include<window.h>
+#include<map.h>
 void om_initiate();
 void om_quit();
 #endif

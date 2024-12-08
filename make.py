@@ -15,6 +15,8 @@ for src in os.listdir("source"):
     shutil.copy("source/"+src,"build/src/"+src)
 for inc in os.listdir("include"):
     shutil.copy("include/"+inc,"build/include/"+inc)
+for scn in os.listdir("scenes"):
+    shutil.copy("scenes/"+scn,"build/src/"+scn)
 
 mon_list = [None for i in os.listdir("mons/data")]
 for mon in os.listdir("mons/data"):
