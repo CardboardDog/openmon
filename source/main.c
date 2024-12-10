@@ -16,6 +16,11 @@ int main(){
         om_get_inputs(inputs);
         if(inputs[2]==quit)
             running = 0;
+        if(inputs[2]==1)
+            if(om_ask_dialog(window,map,player,"YES NOPE",3,"HELLO.","DEMO TEXT.","DO YOU LIKE THIS\nDIALOG"))
+                om_ask_dialog(window,map,player,NULL,1,"OH WELL.");
+            else
+                om_ask_dialog(window,map,player,NULL,1,"GREAT");
         om_move_player(player,map,inputs[0],inputs[1]);
         om_vsync();
     }

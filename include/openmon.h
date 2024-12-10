@@ -12,6 +12,8 @@
 #include<vsync.h>
 #include<player.h>
 #include<area.h>
+#include<text.h>
+#include<dialog.h>
 void om_initiate();
 void om_quit();
 #endif
