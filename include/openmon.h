@@ -14,6 +14,7 @@
 #include<area.h>
 #include<text.h>
 #include<dialog.h>
+#include<inventory.h>
 void om_initiate();
 void om_quit();
 #endif

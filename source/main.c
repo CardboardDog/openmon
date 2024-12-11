@@ -6,6 +6,28 @@ int main(){
     int inputs[3];
     om_map* map = om_load_map(scene_test,window);
     om_player* player = om_create_player(window);
+    om_inventory* inventory = om_create_inventory();
+
+    {
+        om_item* item = om_create_item();
+        item->type = om_captured_mon;
+        item->mon = 1;
+        item->count = 1;
+        om_append_inventory(item,inventory);
+        item = om_create_item();
+        item->type = om_mon_case;
+        item->mon = 1;
+        item->count = 23;
+        om_append_inventory(item,inventory);
+        item = om_create_item();
+        item->type = om_mon_case;
+        item->mon = 1;
+        item->count = 84;
+        om_append_inventory(item,inventory);
+    }
+
+    om_open_inventory(window,player,map,inventory);
+
     player->y=player->x=5;
     while(running){
         om_clear(window);

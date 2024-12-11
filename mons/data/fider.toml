@@ -1,6 +1,6 @@
 [class]
 type = "fire"
-name = "fider"
+name = "FIDER"
 [data]
 attacks = [
     [10,20,30],["fireball","flamethrower","explosion"],[0,2,3]

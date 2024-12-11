@@ -75,6 +75,15 @@ out_font = open("build/src/tiny_font.c","w")
 out_font.write(font)
 out_font.close()
 
+font = list(Image.open("game/numbers.png").getdata())
+font = [(0 if pixel[0]==0 else 1) for pixel in font]
+font = str(font).replace("[","{").replace("]","}")
+font = "#include<font.h>\nunsigned char number_font[om_number_font_len] = "+font+";"
+
+out_font = open("build/src/number_font.c","w")
+out_font.write(font)
+out_font.close()
+
 tiles = list(Image.open("game/tiles.png").getdata())
 tiles = [(0 if pixel[0]==0 else 1) for pixel in tiles]
 tiles = str(tiles).replace("[","{").replace("]","}")

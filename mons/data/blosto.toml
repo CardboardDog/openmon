@@ -1,6 +1,6 @@
 [class]
 type = "earth"
-name = "blosto"
+name = "BLOSTO"
 [data]
 attacks = [
     [10,20,30],["slam","spike","smash"],[0,2,3]
