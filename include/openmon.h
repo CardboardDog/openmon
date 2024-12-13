@@ -15,6 +15,7 @@
 #include<text.h>
 #include<dialog.h>
 #include<inventory.h>
+#include<counter.h>
 void om_initiate();
 void om_quit();
 #endif

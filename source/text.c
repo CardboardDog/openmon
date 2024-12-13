@@ -11,6 +11,7 @@ void om_draw_char(om_window* window, unsigned char c,int x, int y){
 }
 om_text* om_create_text(om_window* window, char* string){
     om_text* text = malloc(sizeof(om_text));
+    text->texture = NULL;
     om_set_text(window,text,string);
     return text;
 }
@@ -71,7 +72,7 @@ void om_draw_text(om_window* window, om_text* text, int x, int y){
     SDL_RenderCopy(window->renderer,text->texture,NULL,&pos);
 }
 void om_destroy_text(om_text* text){
-    if(text->texture!=NULL){
+    if(text!=NULL){
         if(text->texture!=NULL)
             SDL_DestroyTexture(text->texture);
         free(text);

@@ -28,13 +28,19 @@ int main(){
 
     om_open_inventory(window,player,map,inventory);
 
+    om_counter* count = om_create_counter(window,0);
+
+
     player->y=player->x=5;
     while(running){
         om_clear(window);
         om_draw_map(map,window);
         om_draw_player(player,window);
-        om_update_window(window);
 
+        om_set_counter(window,count,count->count+1);
+        om_draw_counter(window,count,5,5);
+
+        om_update_window(window);
         om_get_inputs(inputs);
         if(inputs[2]==quit)
             running = 0;
@@ -46,6 +52,7 @@ int main(){
         om_move_player(player,map,inputs[0],inputs[1]);
         om_vsync();
     }
+    om_destroy_inventory(inventory);
     om_destroy_map(map);
     om_destroy_player(player);
     om_destroy_window(window);
