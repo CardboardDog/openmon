@@ -4,8 +4,11 @@
 #include<mon_list.h>
 #include<window.h>
 #include<map.h>
+#include<text.h>
+#include<counter.h>
+#include<vsync.h>
 #include<player.h>
-extern const char* item_names[3];
+extern char* item_names[3];
 enum om_item_type{
     om_mon_case,
     om_mon_treat,
@@ -31,7 +34,7 @@ struct{
     om_active_mon* group[6];
 }typedef om_inventory;
 om_inventory* om_create_inventory();
-void om_open_inventory(om_window* window, om_player* player, om_map* map, om_inventory* inv);
+void om_open_inventory(om_window* window, om_inventory* inv);
 unsigned char om_append_inventory(om_item* item, om_inventory* inv);
 void om_remove_inventory(unsigned char item, om_inventory* inv);
 void om_swap_inventory(unsigned char item_a, unsigned char item_b, om_inventory* inv);

@@ -24,21 +24,28 @@ int main(){
         item->mon = 1;
         item->count = 84;
         om_append_inventory(item,inventory);
+        item = om_create_item();
+        item->type = om_mon_treat;
+        item->mon = 1;
+        item->count = 1;
+        om_append_inventory(item,inventory);
+        item = om_create_item();
+        item->type = om_flower;
+        item->mon = 1;
+        item->count = 31;
+        om_append_inventory(item,inventory);
+        item = om_create_item();
+        item->type = om_captured_mon;
+        item->mon = 0;
+        item->count = 1;
+        om_append_inventory(item,inventory);
     }
-
-    om_open_inventory(window,player,map,inventory);
-
-    om_counter* count = om_create_counter(window,0);
-
 
     player->y=player->x=5;
     while(running){
         om_clear(window);
         om_draw_map(map,window);
         om_draw_player(player,window);
-
-        om_set_counter(window,count,count->count+1);
-        om_draw_counter(window,count,5,5);
 
         om_update_window(window);
         om_get_inputs(inputs);
@@ -49,6 +56,8 @@ int main(){
                 om_ask_dialog(window,map,player,NULL,1,"OH WELL.");
             else
                 om_ask_dialog(window,map,player,NULL,1,"GREAT");
+        else if(inputs[2]==-1)
+            om_open_inventory(window,inventory);
         om_move_player(player,map,inputs[0],inputs[1]);
         om_vsync();
     }
