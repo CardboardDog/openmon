@@ -16,6 +16,7 @@
 #include<dialog.h>
 #include<inventory.h>
 #include<counter.h>
+#include<instance.h>
 void om_initiate();
 void om_quit();
 #endif
