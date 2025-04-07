@@ -5,7 +5,7 @@ int main(){
     int running = 1;
     int inputs[3];
     om_instance* instance = om_create_instance();
-    instance->map = om_load_map(scene_test,instance->window);
+    omi_load_map(instance,scene_test);
     //om_player* player = om_create_player(window);
     //om_inventory* inventory = om_create_inventory();
 
@@ -44,23 +44,23 @@ int main(){
 
     instance->player->y=instance->player->x=5;
     while(running){
-        om_clear(instance->window);
-        om_draw_map(instance->map,instance->window);
-        om_draw_player(instance->player,instance->window);
+        omi_clear(instance);
+        omi_draw_map(instance);
+        omi_draw_player(instance);
 
-        om_update_window(instance->window);
-        om_get_inputs(inputs);
+        omi_update_window(instance);
+        omi_get_inputs(inputs);
         if(inputs[2]==quit)
             running = 0;
         if(inputs[2]==1)
-            if(om_ask_dialog(instance->window,instance->map,instance->player,"YES NOPE",3,"HELLO.","DEMO TEXT.","DO YOU LIKE THIS\nDIALOG"))
-                om_ask_dialog(instance->window,instance->map,instance->player,NULL,1,"OH WELL.");
+            if(omi_ask_dialog(instance,"YES NOPE",3,"HELLO.","DEMO TEXT.","DO YOU LIKE THIS\nDIALOG"))
+                omi_ask_dialog(instance,NULL,1,"OH WELL.");
             else
-                om_ask_dialog(instance->window,instance->map,instance->player,NULL,1,"GREAT");
+                omi_ask_dialog(instance,NULL,1,"GREAT");
         else if(inputs[2]==-1)
-            om_open_inventory(instance->window,instance->inventory);
-        om_move_player(instance->player,instance->map,inputs[0],inputs[1]);
-        om_vsync();
+            omi_open_inventory(instance);
+        omi_move_player(instance,inputs);
+        omi_vsync();
     }
     //om_destroy_inventory(inventory);
     om_destroy_map(instance->map);
